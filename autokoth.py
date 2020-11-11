@@ -74,15 +74,15 @@ def main():
         	lines = paths.readlines()
 		
         #blacklist
-        path1 = glob.glob("/usr/share/**/src/cmd/go/testdata/script/test_flag.txt", recursive=True)
-        path2 = glob.glob("/usr/share/**/src/cmd/go/testdata/script/modfile_flag.txt", recursive=True)
+	class wrong_paths:	
+        	path1 = glob.glob("/usr/share/**/src/cmd/go/testdata/script/test_flag.txt", recursive=True)
+        	path2 = glob.glob("/usr/share/**/src/cmd/go/testdata/script/modfile_flag.txt", recursive=True)
 
 
         with open(df, "w") as paths:
         	for line in lines:
-	        		if line.strip("\n") != path1:
-                        if line.strip("\n") != path2:
-		        				paths.write(line)
+		    if line.strip("\n") != wrong_paths:
+                        paths.write(line)
 
         
         print("Flags:")
